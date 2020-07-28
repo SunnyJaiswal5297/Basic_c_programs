@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int a[n],i,j;
+        for(i=0;i<n;i++)
+            cin>>a[i];
+        int max=0,f=0;
+        for(i=0;i<n-1;i++)
+        {
+            for(j=i+1;j<n;j++)
+            {
+                if(j-i<max)
+                {
+                    f=1;
+                    break;
+                }
+                if(a[i]==a[j])
+                {
+                    int l=i,r=j;
+                    if(r-l>max)
+                        max=r-l;
+                }
+            }
+            if(f==1)
+                break;
+        }
+        cout<<max<<"\n";
+    }
+    return 0;
+}
